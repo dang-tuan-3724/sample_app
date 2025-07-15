@@ -18,7 +18,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -30,7 +30,8 @@ gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
+gem "bootstrap", "~> 5.3.2"
+gem "dartsass-rails", "~> 0.5"
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 
@@ -39,6 +40,9 @@ gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+gem "sassc-rails", "2.1.2"
+gem "sprockets-rails", "3.4.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -60,4 +64,20 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webdrivers", "5.0.0"
+  gem "rails-controller-testing", "1.0.5"
+  gem "minitest", "5.15.0"
+  gem "minitest-reporters", "1.5.0"
+  gem "guard-minitest", "2.4.6"
 end
+
+group :production do
+  gem "pg", "1.3.5"
+end
+
+gem "mutex_m"
+# gem 'bootstrap-sass', '~> 3.4.1'
+
+
+
+
