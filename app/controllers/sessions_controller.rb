@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
       # log in and redirect to user's show page
       flash[:success] = 'Logged in successfully'
       login user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
       # create an error message
@@ -15,6 +16,8 @@ class SessionsController < ApplicationController
     end
   end
   def destroy
-    render 'new'
+    logout if loggedin?
+    flash[:success] = 'Logged out successfully'
+    redirect_to root_path, status: :see_other
   end
 end
