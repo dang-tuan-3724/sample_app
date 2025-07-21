@@ -1,0 +1,12 @@
+<% provide(:title, "All users") %>
+<h1>All users</h1>
+<%= will_paginate @users, renderer: WillPaginate::ActionView::LinkRenderer %>
+<ul class="users">
+  <% if @users.any? %>
+    <% @users.each do |item| %>
+      <%= render 'users/user', user: item %>
+    <% end %>
+  <% else %>
+    <li>No users found.</li>
+  <% end %>
+</ul>

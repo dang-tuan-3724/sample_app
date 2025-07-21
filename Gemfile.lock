@@ -116,6 +116,8 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -450,6 +452,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
@@ -472,6 +475,7 @@ DEPENDENCIES
   capybara
   dartsass-rails (~> 0.5)
   debug
+  faker (~> 2.0)
   guard
   guard-minitest (= 2.4.6)
   importmap-rails
@@ -499,6 +503,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers (= 5.0.0)
+  will_paginate (~> 3.3.0)
 
 BUNDLED WITH
    2.6.7

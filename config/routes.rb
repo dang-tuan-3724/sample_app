@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "account_activations/edit"
   get "sessions/new"
 
   get "signup" => "users#new"
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   root "static_pages#home"
   resources :users #cai nay la co day du cac rest actions: index, show, new, create, edit, update, destroy
+  resources :account_activations, only: [:edit]
 end

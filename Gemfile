@@ -53,6 +53,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem 'faker', '~> 2.0'
+  gem 'will_paginate', '~> 3.3.0'
 end
 
 group :development do
@@ -77,6 +80,7 @@ end
 
 gem "mutex_m"
 # gem 'bootstrap-sass', '~> 3.4.1'
+
 
 
 
