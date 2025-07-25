@@ -1,6 +1,13 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
+  has_many :active_relationships, class_name: :"Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+
+  has_many :passive_relationships, class_name: :"Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
   attr_accessor :remember_token, :activation_token, :reset_token
-  
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 50 }
@@ -27,7 +34,7 @@ class User < ApplicationRecord
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
-  
+
   def forget
     update_attribute(:remember_digest, nil)
   end
@@ -49,11 +56,26 @@ class User < ApplicationRecord
   def password_reset_expired?
     reset_send_at < 2.hours.ago
   end
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
+  # follows a user.
+  def follow(other_user)
+    # active_relationships.create(followed_id: other_user.id)
+    following << other_user
+  end
+  def unfollow(other_user)
+    # active_relationships.find_by(followed_id: other_user.id).destroy
+    following.delete(other_user)
+  end
+  # returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
+  end
 
   private
   def downcase_email
     self.email = email.downcase
   end
-
-
 end

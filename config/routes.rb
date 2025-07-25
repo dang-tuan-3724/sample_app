@@ -14,8 +14,16 @@ Rails.application.routes.draw do
   delete "logout",  to: "sessions#destroy"
 
   get "up" => "rails/health#show", as: :rails_health_check
+
   root "static_pages#home"
-  resources :users #cai nay la co day du cac rest actions: index, show, new, create, edit, update, destroy
-  resources :account_activations, only: [:edit]
-  resources :password_resets, only: [ :new, :create, :edit, :update]
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :account_activations, only: [ :edit ]
+  resources :password_resets,     only: [ :new, :create, :edit, :update ]
+  resources :microposts,          only: [ :create, :destroy ]
+  resources :relationships,       only: [ :create, :destroy ]
 end

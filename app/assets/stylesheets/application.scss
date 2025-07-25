@@ -192,6 +192,43 @@ aside {
 }
 
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid gray;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
 
 .dropdown-menu.active {
   display: block;
@@ -230,4 +267,91 @@ aside {
     padding: 10px 0px;
     border-bottom: 1px
   }
+}
+.microposts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 15px 0;
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    clear: both; /* Clear any floats */
+  }
+  .gravatar {
+    flex-shrink: 0;
+    float: none !important; /* Override the global gravatar float */
+    margin-right: 0 !important; /* Override the global gravatar margin */
+  }
+  .micropost-content {
+    flex: 1;
+  }
+  .user {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    display: block;
+  }
+  .content {
+    display: block;
+    margin: 5px 0;
+    line-height: 1.4;
+    word-wrap: break-word;
+    img {
+      display: block;
+      padding: 5px 0;
+      max-width: 100%;
+    }
+  }
+  .timestamp {
+    color: #999;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.image {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.user_avatars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* WillPaginate pagination style */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.pagination a, .pagination span {
+  color: #007bff;
+  padding: 8px 12px;
+  margin: 0 2px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+}
+.pagination .current {
+  background: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+.pagination .disabled {
+  color: #ccc;
+  border: 1px solid #dee2e6;
 }

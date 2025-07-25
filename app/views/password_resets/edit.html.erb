@@ -3,7 +3,7 @@
 <div class="row justify-content-center mb-4 mt-4 flex ">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user, url: password_reset_path(params[:id]), data: { turbo: false }) do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'shared/error_messages', object: f.object%>
         <%= f.hidden_field :email, value: @user.email %>
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>

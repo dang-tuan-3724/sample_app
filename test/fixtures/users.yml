@@ -13,3 +13,11 @@ tan:
   admin: false
   activated: true
   activated_at: <%= Time.zone.now %>
+
+user_test:
+  name: User_Test
+  email: user_test@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>

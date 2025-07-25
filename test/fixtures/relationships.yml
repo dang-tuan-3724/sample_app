@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  follower: tuan
+  followed: tan
+
+two:
+  follower: tan
+  followed: tuan
+
+three:
+  follower: user_test
+  followed: tan

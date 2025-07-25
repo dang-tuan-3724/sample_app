@@ -28,6 +28,8 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3.2"
@@ -82,6 +84,5 @@ gem "mutex_m"
 # gem 'bootstrap-sass', '~> 3.4.1'
 
 
-
-
-
+gem "active_storage_validations", "~> 0.9.0"
+gem "image_processing", "~> 1.2"
